@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+        <!-- Profile Page -->
+        <section id="profile-page" class="details">
+        {% for prof in profile %}
+            <div class="profile-information">
+                <h3>{{ prof.first_name }} {{ prof.last_name }}</h3>
+                <p class="img"><img src="{{ prof.image }}" alt="img"></p>
+                <div class="actions">
+                    <a class="button" href="{% url 'edit profile' pk=prof.pk %}">Edit</a>
+                    <a class="button" href="{% url 'delete profile' pk=prof.pk %}">Delete</a>
+                </div>
+            </div>
+        {% endfor %}
+        </section>
+
+{% endblock %}
+
+
